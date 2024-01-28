@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: deathstar
+  labels:
+    name: deathstar
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: deathstar.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: deathstar
+            port: 
+              number: 80
